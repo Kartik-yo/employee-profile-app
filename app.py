@@ -1,10 +1,18 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,  render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')  # Adjust as necessary
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/layout')
+def layout():
+    return render_template('layout.html')
+    
 # Initialize SQLAlchemy
 db = SQLAlchemy(app)
 
