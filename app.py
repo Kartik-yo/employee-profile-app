@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request,  render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 app.config.from_object('config.DevelopmentConfig')  # Adjust as necessary
 
 @app.route('/')
